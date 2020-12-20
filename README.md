@@ -2,6 +2,11 @@
 Projeto criado para o *desafio técnico* da Paschoalotto.
 
 ---
+## Requisitos
+1) Python 3.6.x ou superior
+2) SQLite
+
+---
 ## Install
 Para a instalação, há um script responsável por faze-la, para executa-lo:
 1) Instalar o *make*:
@@ -79,6 +84,7 @@ Exemplos de uso com cURL:
 ```
 
 É possível testar também atráves das [docs](http://localhost:5000/api/docs), pois implementa o *Swwager UI*
+
 ---
 ## Links
 [GitHub](https://github.com/Orbeli/desafio-paschoalotto) - GitHub do projeto  
