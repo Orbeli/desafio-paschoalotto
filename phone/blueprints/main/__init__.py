@@ -12,7 +12,7 @@ api = Api(
     doc="/docs"
 )
 
-api.add_namespace(phone_ns, path="/phone")
+api.add_namespace(phone_ns, path="/phones")
 
 def init_app(app):
     app.register_blueprint(bp, url_prefix='/api')

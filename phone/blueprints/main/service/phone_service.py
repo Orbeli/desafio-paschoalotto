@@ -18,7 +18,7 @@ def list_phones(blocked, page=1, per_page=50):
 def new_phone(phones):
     for phone in phones:
         new_phone = Phone()
-        new_phone.phone_number = phone['phone_number']
+        new_phone.phone_number = phone['phone_number'].strip()
         new_phone.available = phone['available']
         db.session.add(new_phone)
         db.session.commit()
