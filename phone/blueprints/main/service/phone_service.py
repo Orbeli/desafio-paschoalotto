@@ -4,14 +4,10 @@ from phone.ext.database import db
 def get_phone(phone_id):
     return Phone.query.get(phone_id)
 
-def list_phones(blocked, page=1, per_page=50):
-    if blocked:
-        try:
-            blocked = int(blocked)
-        except:
-            pass
-        if blocked == 1 or blocked == 0:
-            return Phone.query.filter_by(available=blocked).paginate(page, per_page).items
+def list_phones(blocked, page, per_page):
+    # Verifico se e necessario filtrar os resultados por telefones validos/invalidos
+    if blocked == 1 or blocked == 0:
+        return Phone.query.filter_by(available=blocked).paginate(page, per_page).items
 
     return Phone.query.paginate(page, per_page).items
 
@@ -39,7 +35,5 @@ def remove_phone(phone_id):
     if phone:
         db.session.delete(phone)
         db.session.commit()
-    else:
-        return {"message": "Telefone não encontrado"}, 404
 
-    return None, 204
+    return phone

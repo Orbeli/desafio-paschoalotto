@@ -13,15 +13,38 @@ _phone_post = PhoneDto.phone_post,
 _phone_remove = PhoneDto.phone_remove,
 
 
+def validate_integer_query_string(param, default):
+    try:
+        param = int(param)
+        return param
+    except:
+        pass
+
+    return default
+
+
 @api.route('/')
 class PhoneController(Resource):
     def get(self):
         """Lista até 50 telefones por página."""
-        blocked = request.args.get("blocked", "")
-        page = int(request.args.get("page", 1))
-        per_page = int(request.args.get("per_page", 50))
+        blocked = validate_integer_query_string(
+            param=request.args.get("blocked", ""), 
+            default=""
+        )
+        page = validate_integer_query_string(
+            param=request.args.get("page", 1), 
+            default=1
+        )
+        per_page = validate_integer_query_string(
+            param=request.args.get("per_page", 50), 
+            default=50
+        )
+        phones = list_phones(page=page, per_page=per_page, blocked=blocked)
 
-        return PhoneSchema(many=True).dump(list_phones(page=page, per_page=per_page, blocked=blocked))
+        if phones:
+            return PhoneSchema(many=True).dump(phones)
+        else:
+            return {"message": "Telefone(s) não encontrado(s)!"}, 404
 
     @api.expect(_phone_post)
     def post(self):
@@ -55,4 +78,8 @@ class PhoneControllerOperations(Resource):
 
     def delete(self, phone_id):
         """Remove telefone pelo id"""
-        return remove_phone(phone_id)
+        phone = remove_phone(phone_id)
+        if phone:
+            return None, 204
+        else:
+            return {"message": "Telefone não encontrado!"}, 404 

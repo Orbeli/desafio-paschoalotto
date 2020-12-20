@@ -6,7 +6,7 @@ Projeto criado para o *desafio técnico* da Paschoalotto.
 Para a instalação, há um script responsável por faze-la, para executa-lo:
 1) Instalar o *make*:
 ```
-    sudo apt get install make
+    sudo get install make
 ```
 2) Executar o comando abaixo no diretório raiz do projeto:
 ```
@@ -78,8 +78,7 @@ Exemplos de uso com cURL:
     curl -X DELETE "http://localhost:5000/api/phones/1" -H "accept: application/json"
 ```
 
-É possível testar também atráves das [docs](http://localhost:5000/api/docs)
-
+É possível testar também atráves das [docs](http://localhost:5000/api/docs), pois implementa o *Swwager UI*
 ---
 ## Links
 [GitHub](https://github.com/Orbeli/desafio-paschoalotto) - GitHub do projeto  

@@ -9,7 +9,7 @@ api = Api(
     title="Api Agente Virtual",
     version="1.0.0",
     description="API Rest em Python utilizando Flask para a verificação se um ou mais telefones podem ou não ter acionamentos.",
-    doc="/docs"
+    doc="/docs/"
 )
 
 api.add_namespace(phone_ns, path="/phones")
