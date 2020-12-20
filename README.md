@@ -50,7 +50,7 @@ Para startar o projeto caso não possuir o *make*:
 
 ---
 ## Docs
-As [docs](http://localhost:5000/api/docs) podem ser acessadas pelo endpoint /docs
+As [docs](http://localhost:5000/api/docs) podem ser acessadas pelo endpoint /api/docs
 
 As docs são feitas com a estrutura [Swwager](https://swagger.io/) através da extensão [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/)
 
