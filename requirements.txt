@@ -1,0 +1,7 @@
+wheel
+flask
+flask-restx
+flask-migrate
+flask-sqlalchemy
+flask-marshmallow
+marshmallow-sqlalchemy
