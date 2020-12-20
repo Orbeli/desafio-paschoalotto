@@ -5,6 +5,9 @@ def get_phone(phone_id):
     return Phone.query.get(phone_id)
 
 def list_phones(blocked, page, per_page):
+    #limito os itens a serem exibidos em no máximo 50 por página
+    if per_page > 50:
+        per_page = 50
     # Verifico se e necessario filtrar os resultados por telefones validos/invalidos
     if blocked == 1 or blocked == 0:
         return Phone.query.filter_by(available=blocked).paginate(page, per_page).items
